@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import "./App.css";
 import axios from 'axios';
 
@@ -7,23 +7,24 @@ import axios from 'axios';
 
 function App() {
 
-  function clickHandler(evt){
+
+  const [image, setImage] = useState("https://www.nasa.gov/sites/default/files/thumbnails/image/1_icon_olympus_multi-purpose_isru-based_lunarconstructionsystem_concept-render_nov2022_for_icon_release.jpg")
+
+
+  useEffect(()=>{
     axios.get(`https://api.nasa.gov/planetary/apod?api_key=jyvxS0ux5lMaUrbWkBCevhgnTdZaZwNjblMPWaQT&date=2023-01-13`)
     .then(res => {
       const persons = res.data;
-      console.log(persons)
+      setImage(persons.url)
     })
-  }
+
+  },[])
+ 
 
 
   return (
-    <div className="App">
-      <p>
-        Read through the instructions in the README.md file to build your NASA
-        app! Have fun <span role="img" aria-label='go!'>🚀</span>!
-        
-      </p>
-      <button onClick={clickHandler}>show the nasa photo of the day</button>
+    <div className="App" style={{display:"flex", flexDirection:"column",alignItems:"center"}}>
+      <img src={image} width="400px"/>
     </div>
   );
 }
