@@ -1,5 +1,6 @@
-import React from "react";
+import React, {useState} from "react";
 import "./App.css";
+import axios from 'axios';
 
 
 
@@ -7,8 +8,11 @@ import "./App.css";
 function App() {
 
   function clickHandler(evt){
-
-    console.log(evt)
+    axios.get(`https://api.nasa.gov/planetary/apod?api_key=jyvxS0ux5lMaUrbWkBCevhgnTdZaZwNjblMPWaQT&date=2023-01-13`)
+    .then(res => {
+      const persons = res.data;
+      console.log(persons)
+    })
   }
 
 
