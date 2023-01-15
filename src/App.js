@@ -12,7 +12,7 @@ function App() {
 
 
   useEffect(()=>{
-    axios.get(`https://api.nasa.gov/planetary/apod?api_key=jyvxS0ux5lMaUrbWkBCevhgnTdZaZwNjblMPWaQT&date=2023-01-13`)
+    axios.get(`https://api.nasa.gov/planetary/apod?api_key=jyvxS0ux5lMaUrbWkBCevhgnTdZaZwNjblMPWaQT`)
     .then(res => {
       const persons = res.data;
       setImage(persons.url)
