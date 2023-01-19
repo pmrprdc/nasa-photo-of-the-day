@@ -3,13 +3,13 @@ import React ,{useState} from "react"
 import styled from "styled-components"
 
 
+const StyledImage = styled.img`
+width: 80%;
+border: 40px solid white;
+
+`;
 export default function PhotoOfDay(props){
 
-    const StyledImage = styled.img`
-    width: 80%;
-    border: 100px solid black;
-    
-    `;
 
 
  const {data} = props;
